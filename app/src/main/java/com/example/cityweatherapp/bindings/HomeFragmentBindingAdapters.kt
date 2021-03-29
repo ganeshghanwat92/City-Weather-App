@@ -33,10 +33,23 @@ import kotlin.math.roundToInt
 
 @BindingAdapter("weatherViewVisibility")
 fun ViewGroup.weatherViewVisibility(resultWrapper: ResultWrapper<CityWeather>?) {
-    visibility = if (resultWrapper!=null && resultWrapper is ResultWrapper.Success)
-        View.VISIBLE
+     if (resultWrapper!=null && resultWrapper is ResultWrapper.Success) {
+         visibility = View.VISIBLE
+
+         // animate
+         alpha = 0f
+         visibility = View.VISIBLE
+
+         // Animate the content view to 100% opacity, and clear any animation
+         // listener set on the view.
+         animate()
+                 .alpha(1f)
+                 .setDuration(500)
+                 .setListener(null)
+
+     }
     else
-        View.GONE
+       visibility =  View.GONE
 
 }
 
