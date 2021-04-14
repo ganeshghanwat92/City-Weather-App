@@ -3,6 +3,8 @@ package com.example.cityweatherapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.work.*
 import com.example.cityweatherapp.wm.DeleteOldWeatherRecordsWorker
 import dagger.android.AndroidInjection
